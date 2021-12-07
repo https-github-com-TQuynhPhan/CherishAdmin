@@ -1347,7 +1347,7 @@ ul.tab-custon-design, ul.tab-review-design {
     padding: 40px 0px;
 }
 .pro-edt-img img{
-	width:60%;
+	width:100%;
 }
 .product-edt-remove button {
     margin-top: 20px;
@@ -1451,8 +1451,8 @@ ul#single-product-tab li{
 }
 .single-regular, .list-regular{
 	color:#fff;
-	font-weight:700;
-	font-size:24px;
+	font-weight:500;
+	font-size:20px;
 }
 .single-old, .list-old{
 	color:#fff;

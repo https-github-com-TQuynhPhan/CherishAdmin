@@ -4,11 +4,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const session = require("express-session");
+
+const passport = require('./auth/passport');
+
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./components/auth/users');
 const productsRouter = require('./components/products/products');
 const customersRouter = require('./components/customers/customers');
 const ordersRouter = require('./components/orders/orders');
+const adminsRouter = require('./components/admins/admins');
 
 const app = express();
 
@@ -17,17 +22,31 @@ const app = express();
 app.set('views', [__dirname + '/views', __dirname + '/components']);
 app.set('view engine', 'hbs');
 
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(session({
+  secret: process.env.SESSION_SECRET, resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use('/dashboard', indexRouter);
+app.use('/', usersRouter);
 app.use('/products', productsRouter);
 app.use('/customers', customersRouter);
 app.use('/orders', ordersRouter);
+app.use('/admins', adminsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,7 +61,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('Error');
 });
 
 module.exports = app;
