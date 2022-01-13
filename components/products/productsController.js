@@ -1,7 +1,5 @@
-//const productsService = require('./productsService');
-
 exports.list = (req,res) => {
-    //const product = await productsService.list();
+
     res.render('products/productsList');
 }
 

@@ -37,8 +37,10 @@
                     <div class="review-tab-pro-inner">
                         <ul id="myTab3" class="tab-review-design">
                             <li class="active"><a href="#description"><i class="icon nalika-edit"
-                                        aria-hidden="true"></i>Product Edit</a></li>
+                                        aria-hidden="true"></i> Product Edit</a></li>
                             <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Pictures</a>
+                            </li>
+                            <li><a href="#INFORMATION"><i class="icon nalika-chat" aria-hidden="true"></i> Review</a>
                             </li>
                         </ul>
                         <div id="myTabContent" class="tab-content custom-product-edit">
@@ -48,34 +50,50 @@
                                         <div class="review-content-section">
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="ID">
+                                                <input type="text" class="form-control" placeholder="Product ID">
+                                            </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" placeholder="Brand">
+                                            </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" placeholder="Product Name">
+                                            </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" placeholder="Regular Price">
+                                            </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" placeholder="Quantity">
+                                            </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" placeholder="Net Weight">
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></i></span>
-                                                <input type="text" class="form-control" placeholder="Customer's Name">
+                                                <input type="text" class="form-control" placeholder="Product Description">
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <select name="select"
+                                                <input type="text" class="form-control" placeholder="Sale Price">
+                                            </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"><i class="icon nalika-like"
+                                                        aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" placeholder="Category">
+                                            </div>
+                                            {{!-- <select name="select"
                                                 class="form-control pro-edt-select form-control-primary">
-                                                <option value="opt1">Gender -- Select One Value Only</option>
-                                                <option value="opt2">Female</option>
-                                                <option value="opt3">Male</option>
-                                                <option value="opt4">Rather Not</option>
-                                            </select>
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Phone Number">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Email">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Address">
-                                            </div>
+                                                <option value="opt1">Select One Value Only</option>
+                                                <option value="opt2">2</option>
+                                                <option value="opt3">3</option>
+                                                <option value="opt4">4</option>
+                                                <option value="opt5">5</option>
+                                                <option value="opt6">6</option>
+                                            </select> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -277,6 +295,76 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="review-content-section">
+                                            <div class="card-block">
+                                                <div class="text-muted f-w-400">
+                                                    <p>No reviews yet.</p>
+                                                </div>
+                                                <div class="m-t-10">
+                                                    <div class="txt-primary f-18 f-w-600">
+                                                        <p>Your Rating</p>
+                                                    </div>
+                                                    <div class="stars stars-example-css detail-stars">
+                                                        <div class="review-rating">
+                                                            <fieldset class="rating">
+                                                                <input type="radio" id="star5" name="rating" value="5">
+                                                                <label class="full" for="star5"></label>
+                                                                <input type="radio" id="star4half" name="rating"
+                                                                    value="4 and a half">
+                                                                <label class="half" for="star4half"></label>
+                                                                <input type="radio" id="star4" name="rating" value="4">
+                                                                <label class="full" for="star4"></label>
+                                                                <input type="radio" id="star3half" name="rating"
+                                                                    value="3 and a half">
+                                                                <label class="half" for="star3half"></label>
+                                                                <input type="radio" id="star3" name="rating" value="3">
+                                                                <label class="full" for="star3"></label>
+                                                                <input type="radio" id="star2half" name="rating"
+                                                                    value="2 and a half">
+                                                                <label class="half" for="star2half"></label>
+                                                                <input type="radio" id="star2" name="rating" value="2">
+                                                                <label class="full" for="star2"></label>
+                                                                <input type="radio" id="star1half" name="rating"
+                                                                    value="1 and a half">
+                                                                <label class="half" for="star1half"></label>
+                                                                <input type="radio" id="star1" name="rating" value="1">
+                                                                <label class="full" for="star1"></label>
+                                                                <input type="radio" id="starhalf" name="rating"
+                                                                    value="half">
+                                                                <label class="half" for="starhalf"></label>
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group mg-b-15 mg-t-15">
+                                                    <span class="input-group-addon"><i class="icon nalika-user"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" placeholder="User Name">
+                                                </div>
+                                                <div class="input-group mg-b-15">
+                                                    <span class="input-group-addon"><i class="icon nalika-user"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" placeholder="Last Name">
+                                                </div>
+                                                <div class="input-group mg-b-15">
+                                                    <span class="input-group-addon"><i class="icon nalika-mail"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" placeholder="Email">
+                                                </div>
+                                                <div class="form-group review-pro-edt mg-b-0-pt">
+                                                    <button type="submit"
+                                                        class="btn btn-ctl-bt waves-effect waves-light">Submit
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
