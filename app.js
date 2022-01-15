@@ -6,12 +6,17 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const session = require("express-session");
+
+const passport = require('./auth/passport');
+
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const analyticsRouter = require('./routes/analytics');
+const usersRouter = require('./components/auth/users');
 const productsRouter = require('./components/products/products');
 const customersRouter = require('./components/customers/customers');
 const ordersRouter = require('./components/orders/orders');
-const testerService = require('./components/testerService');
+const adminsRouter = require('./components/admins/admins');
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true}).then(()=>
 {
@@ -33,12 +38,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(session({
+  secret: process.env.SESSION_SECRET, resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/dashboard', indexRouter);
+app.use('/', usersRouter);
 app.use('/products', productsRouter);
 app.use('/customers', customersRouter);
 app.use('/orders', ordersRouter);
-app.use('/test',testerService);
+app.use('/admins', adminsRouter);
+app.use('/analytics', analyticsRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
