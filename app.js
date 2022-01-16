@@ -52,7 +52,6 @@ app.use('/customers', customersRouter);
 app.use('/orders', ordersRouter);
 app.use('/admins', adminsRouter);
 app.use('/analytics', analyticsRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
