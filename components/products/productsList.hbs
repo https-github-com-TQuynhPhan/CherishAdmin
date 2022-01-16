@@ -39,125 +39,52 @@
                     <table>
                         <tr>
                             <th>Image</th>
-                            <th>Product Title</th>
-                            <th>Status</th>
-                            <th>Purchases</th>
-                            <th>Product sales</th>
-                            <th>Stock</th>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Brand ID</th>
+                            <th>Producing Year</th>
                             <th>Price</th>
+                            <th>Description</th>
                             <th>Setting</th>
                         </tr>
+                        {{#each products}}
                         <tr>
-                            <td><img src="/img/new-product/5-small.jpg" alt="" /></td>
-                            <td>Product Title 1</td>
+                            <td><img src="/img/product/{{Image}}" alt="" /></td>
+                            <td>{{ProductID}}</td>
+                            <td>{{ProductName}}</td>
+                            <td>{{Category}}</td>
+                            <td>{{BrandID}}</td>
+                            <td>{{ProducingYear}}</td>
+                            <td>${{Price}}</td>
+                            <td>{{Description}}</td>
                             <td>
-                                <button class="pd-setting">Active</button>
-                            </td>
-                            <td>50</td>
-                            <td>$750</td>
-                            <td>Out Of Stock</td>
-                            <td>$15</td>
-                            <td>
-                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                <button data-toggle="tooltip" title="Detail" class="pd-setting-ed">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>        
                                 <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></button>
                             </td>
                         </tr>
-                        <tr>
-                            <td><img src="/img/new-product/6-small.jpg" alt="" /></td>
-                            <td>Product Title 2</td>
-                            <td>
-                                <button class="ps-setting">Paused</button>
-                            </td>
-                            <td>60</td>
-                            <td>$1020</td>
-                            <td>In Stock</td>
-                            <td>$17</td>
-                            <td>
-                                <a href="/products/productsDetail">
-                                <button data-toggle="tooltip" title="Detail" class="pd-setting-ed" ><i
-                                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                        class="fa fa-trash-o" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="/img/new-product/7-small.jpg" alt="" /></td>
-                            <td>Product Title 3</td>
-                            <td>
-                                <button class="ds-setting">Disabled</button>
-                            </td>
-                            <td>70</td>
-                            <td>$1050</td>
-                            <td>Low Stock</td>
-                            <td>$15</td>
-                            <td>
-                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                        class="fa fa-trash-o" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="/img/new-product/5-small.jpg" alt="" /></td>
-                            <td>Product Title 4</td>
-                            <td>
-                                <button class="pd-setting">Active</button>
-                            </td>
-                            <td>120</td>
-                            <td>$1440</td>
-                            <td>In Stock</td>
-                            <td>$12</td>
-                            <td>
-                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                        class="fa fa-trash-o" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="/img/new-product/6-small.jpg" alt="" /></td>
-                            <td>Product Title 5</td>
-                            <td>
-                                <button class="pd-setting">Active</button>
-                            </td>
-                            <td>30</td>
-                            <td>$540</td>
-                            <td>Out Of Stock</td>
-                            <td>$18</td>
-                            <td>
-                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                        class="fa fa-trash-o" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="/img/new-product/7-small.jpg" alt="" /></td>
-                            <td>Product Title 6</td>
-                            <td>
-                                <button class="ps-setting">Paused</button>
-                            </td>
-                            <td>400</td>
-                            <td>$4000</td>
-                            <td>In Stock</td>
-                            <td>$10</td>
-                            <td>
-                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                        class="fa fa-trash-o" aria-hidden="true"></i></button>
-                            </td>
-                        </tr>
+                        {{/each}}
                     </table>
                     <div class="custom-pagination">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=1">01</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=2">02</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=3">03</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=4">04</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=5">05</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=6">06</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=7">07</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=8">08</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=9">09</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=10">10</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=11">11</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=12">12</a></li>
                         </ul>
                     </div>
                 </div>
