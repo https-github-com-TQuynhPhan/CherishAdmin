@@ -32,7 +32,8 @@ exports.edit = async (req,res) => {
     res.render('products/productsEdit', {products});
 }
 exports.comfirm = async(req,res)=> {
-	productService.comfirm(req,res);
+	let id = req.params.id;
+	productService.comfirm(id,req,res);
 }
 exports.detail =async (req,res) => {
 
