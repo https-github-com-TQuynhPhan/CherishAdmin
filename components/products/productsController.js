@@ -27,9 +27,14 @@ exports.type = async (req, res)=>{
 // 	res.render('product/soapList', {products});
 // };
 exports.edit = async (req,res) => {
-    res.render('products/productsEdit');
+	let id = req.params.id;
+	const products =await productService.listDetail(id);
+    res.render('products/productsEdit', {products});
 }
-
+exports.comfirm = async(req,res)=> {
+	let id = req.params.id;
+	productService.comfirm(id,req,res);
+}
 exports.detail =async (req,res) => {
 
 	let id= req.params.id;
@@ -40,7 +45,13 @@ exports.detail =async (req,res) => {
 	const reviews = await productService.listReview(id,pageNumber,productPerPage);
     res.render('products/productsDetail', {reviews, products} );
 }
+exports.add = (req,res) => {
 
+	res.render('products/productsAdd');
+}
+exports.addcomfirm = (req,res)=>{
+	productService.addcomfirm(req,res);
+}
 exports.cart = (req,res) => {
 
     res.render('products/productsCart');
