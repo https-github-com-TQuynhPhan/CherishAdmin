@@ -46,3 +46,7 @@ exports.saveEdit = async (req, res) => {
     await adminsService.saveEdit(req,res);
     res.redirect("/admins/adminsProfile");
  }
+
+ exports.lock = async (req, res) => {
+    await adminsService.lock(req,res);
+   }

@@ -7,7 +7,8 @@ const OrderSchema = new Schema({
   CartID: String,
   OrderDay: Date,
   TotalCost: Number,
-  PaymentStatus: String
+  PaymentStatus: String,
+  ShippingStatus: String
 },
 {collection: "orders"}
 );

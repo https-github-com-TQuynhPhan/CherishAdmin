@@ -40,7 +40,7 @@
                             <img src="/img/avatar.jpg" alt="" />
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            {{#adminDetail}}
+                            {{#customerDetail}}
                             <div class="single-product-details res-pro-tb">
                                 <div class="single-pro-price">
                                     <span class="single-regular">ID: {{UserID}}</span>
@@ -63,16 +63,13 @@
                                 <div class="single-pro-price">
                                     <span class="single-regular">Address: {{Address}} </span>
                                 </div>
-                                <div class="single-pro-price">
-                                    <span class="single-regular"> Role: {{Role}} </span>
-                                </div>
                             </div>
                             <div class="text-right custom-pro-edt-ds">
-                                <a href="/admins/adminsLock/{{Account}}">
+                                <a href="/customers/customersLock/{{Account}}">
                                     <button type="submit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Lock
                                     </button></a>
                             </div>
-                            {{/adminDetail}}
+                            {{/customerDetail}}
                             {{#if message }}
                             <h4 class="alert alert-danger mt-4">{{message}}</h4>
                             {{/if}}

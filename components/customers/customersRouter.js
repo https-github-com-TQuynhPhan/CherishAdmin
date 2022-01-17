@@ -5,6 +5,8 @@ const customersController = require('./customersController');
 
 router.get('/', customersController.list);
 
-router.get('/customersEdit',customersController.edit);
+router.get('/customersDetail/:Account',customersController.detail);
+
+router.get('/customersLock/:Account',customersController.lock);
 
 module.exports = router;

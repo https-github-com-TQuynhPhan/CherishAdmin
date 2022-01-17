@@ -8,7 +8,15 @@ exports.list = async (req,res) => {
     res.render('customers/customersList',{customers});
 }
 
-exports.edit = (req,res) => {
-
-    res.render('customers/customersEdit');
+exports.detail = async (req,res) => {
+    let Account = undefined;
+    try {
+        Account = req.params.Account;
+      } catch {}
+    let customerDetail= await customersService.detail(Account)
+    res.render('customers/customersDetail', {  customerDetail: customerDetail});
 }
+
+exports.lock = async (req, res) => {
+    await customersService.lock(req,res);
+   }

@@ -5,6 +5,4 @@ const ordersController = require('./ordersController');
 
 router.get('/', ordersController.list);
 
-router.get('/ordersEdit', ordersController.edit);
-
 module.exports = router;

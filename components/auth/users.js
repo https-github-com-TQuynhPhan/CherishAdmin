@@ -13,7 +13,7 @@ module.exports = router;
 router.post('/', passport.authenticate('local',
 { 
   successRedirect: '/dashboard',
-  failureRedirect: '/?wrongUsernameorPassword', 
+  failureRedirect: '/?WrongUsernameOrPasswordOrYourAccountHasBeenLocked', 
 })
 /*function (req,res) {
   if(req.user)

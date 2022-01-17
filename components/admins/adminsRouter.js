@@ -18,4 +18,6 @@ router.get('/adminsProfile',adminsController.profile);
 router.get('/adminsEdit/:Account',adminsController.edit);
 router.post('/adminsEdit',adminsController.saveEdit);
 
+router.get('/adminsLock/:Account',adminsController.lock);
+
 module.exports = router;

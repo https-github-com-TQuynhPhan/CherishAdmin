@@ -42,7 +42,7 @@ exports.add =  async (req,res) => {
         const newAdminInfo = new info({
         UserID:idAdmin,
         Account,
-        Role: 'Admin'
+        Role: 'Admin',
         })
         await newAdmin.save();
         newAdminInfo.save();
@@ -74,3 +74,31 @@ exports.saveEdit = async (req,res) => {
     );
     await adm.save();
 }
+
+exports.lock = async (req,res) => {
+    const adm = await admin.findOne({ Account:req.params.Account });
+    let Account = undefined;
+    try {
+        Account = req.user.account;
+      } catch {}
+      console.log(adm.Account)
+      console.log(Account)
+      if(adm.Account != Account)
+      {
+        if(adm.Status==="Locked")
+        {
+          adm.Status=undefined;
+          await adm.save();
+          return res.render('admins/adminsDetail',{message: 'You have unlocked the account.'})
+        }
+        else{
+          adm.Status="Locked";
+          await adm.save();
+          return res.render('admins/adminsDetail',{message: 'Account has been locked!'})
+        }
+      }
+      else
+      {
+        return res.render('admins/adminsDetail',{message: 'You can not lock your own account!'})
+      }
+   };

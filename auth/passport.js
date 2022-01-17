@@ -12,6 +12,10 @@ const passport = require('passport')
             if (!user) {
                 return done(null, false, { message: 'Incorrect username.' });
             }
+            if(user.Status === "Locked")
+            {
+                return done(null, false, { message: 'Your account has been locked!' });
+            }
             const match=await validPassword(user,password);
             if (!match) {
                 return done(null, false, { message: 'Incorrect password.' });

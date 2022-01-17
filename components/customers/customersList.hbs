@@ -54,10 +54,8 @@
                             <td>{{Phone}}</td>
                             <td>{{Address}}</td>
                             <td>
-                                <form action="/customers/delete" method="post">
-                                    <input type="submit" value="Delete"
-                                        onclick="return confirm('Are you sure you want to delete this customer?')" />
-                                </form> 
+                                <a href="/customers/customersDetail/{{Account}}">
+                                <button class="pd-setting-ed">Detail</button></a>
                             </td>
                         </tr>
                         {{/each}}
