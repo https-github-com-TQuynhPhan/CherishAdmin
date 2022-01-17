@@ -40,99 +40,104 @@
                                         aria-hidden="true"></i>Product Edit</a></li>
                             </li>
                         </ul>
-                        {{#each products}}
-                        <form action="/products/productsEdit/{{ProductID}}/comfirm" method="POST" id="editProduct" enctype="multipart/form-data">
-                        
-                            <div id="myTabContent" class="tab-content custom-product-edit">
-                                <div class="product-tab-list tab-pane fade active in" id="description">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+
+                        <div id="myTabContent" class="tab-content custom-product-edit">
+                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        {{#products}}
+                                        <form action="/products/productsEdit/{{ProductID}}/comfirm" method="POST"
+                                            id="editProduct">
+                                            
                                             <div class="review-content-section">
+
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
-                                                    <input type="text" class="form-control" placeholder="{{ProductID}}"
-                                                    name="ProductID">
+                                                    <input type="text" class="form-control" placeholder="Product ID"
+                                                        value="{{ProductID}}" name="ProductID">
                                                 </div>
-                                                {{/each}}
+
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Product Name"
-                                                    name="ProductName">
+                                                        value="{{ProductName}}" name="ProductName">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Category"
-                                                    name="Category">
+                                                        value="{{Category}}" name="Category">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="BrandID"
-                                                    name="BrandID">
+                                                        value="{{BrandID}}" name="BrandID">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="ProducingYear"
-                                                    name="ProducingYear">
+                                                        value="{{ProducingYear}}" name="ProducingYear">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Color"
-                                                    name="Color">
+                                                        value="{{Color}}" name="Color">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Weight"
-                                                    name="Weight">
+                                                        value="{{Weight}}" name="Weight">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Count"
-                                                    name="Count">
+                                                        value="{{Count}}" name="Count">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Price"
-                                                    name="Price">
+                                                        value="{{Price}}" name="Price">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="SalePrice"
-                                                    name="SalePrice">
+                                                        value="{{SalePrice}}" name="SalePrice">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Description"
-                                                    name="Description">
+                                                        value="{{Description}}" name="Description">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
-                                                    <input type="file" class="form-control" placeholder="Avatar"
-                                                    name="Image">
+                                                    <input type="hidden" class="form-control" placeholder="Image"
+                                                        value="{{Image}}" name="Image">
+                                                </div>
+                                                <div class="text-center custom-pro-edt-ds">
+
+                                                    <button type="submit"
+                                                        class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save
+                                                    </button>
+                                                    <a href="/products">
+                                                        <button type="button"
+                                                            class="btn btn-ctl-bt waves-effect waves-light">Discard
+                                                        </button>
+                                                    </a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    {{#if message }}
-                                        <h4 class="alert alert-danger mt-4">{{message}}</h4>
-                                    {{/if}}
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="text-center custom-pro-edt-ds">
-
-                                                <button type="submit"
-                                                    class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save
-                                                </button>
-                                                <a href="/products">
-                                                    <button type="button"
-                                                    class="btn btn-ctl-bt waves-effect waves-light">Discard
-                                                    </button>
-                                                </a>
-                                        </div>
-                                        </div>
+                                            
+                                        </form>
+                                        {{/products}}
+                                        
                                     </div>
                                 </div>
+                                {{#if message }}
+                                <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                                {{/if}}
                             </div>
-                        </form>
+                        </div>
+
                     </div>
                 </div>
             </div>

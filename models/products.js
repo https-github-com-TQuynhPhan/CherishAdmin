@@ -11,7 +11,7 @@ const ProductSchema = new Schema({
   Weight: Number,
   Count: Number,
   Price: Number,
-  SalePrice: Number,
+  SalePrice: {type: Number,sparse:true},
   Description: String,
   Image: String
 },
