@@ -10,7 +10,7 @@
                                     <i class="icon nalika-home"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Product Edit</h2>
+                                    <h2>Product Add</h2>
                                     <p>Welcome To Cherish <span class="bread-ntd"></span></p>
                                 </div>
                             </div>
@@ -37,12 +37,10 @@
                     <div class="review-tab-pro-inner">
                         <ul id="myTab3" class="tab-review-design">
                             <li class="active"><a href="#description"><i class="icon nalika-edit"
-                                        aria-hidden="true"></i>Product Edit</a></li>
+                                        aria-hidden="true"></i>Product Add</a></li>
                             </li>
                         </ul>
-                        {{#each products}}
-                        <form action="/products/productsEdit/{{ProductID}}/comfirm" method="POST" id="editProduct" enctype="multipart/form-data">
-                        
+                        <form action="/products/productsAdd/comfirm" method="POST" id="AddProduct" enctype="multipart/form-data">
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
                                     <div class="row">
@@ -50,10 +48,9 @@
                                             <div class="review-content-section">
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
-                                                    <input type="text" class="form-control" placeholder="{{ProductID}}"
+                                                    <input type="text" class="form-control" placeholder="Product ID"
                                                     name="ProductID">
                                                 </div>
-                                                {{/each}}
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"></span>
                                                     <input type="text" class="form-control" placeholder="Product Name"
@@ -139,3 +136,8 @@
         </div>
     </div>
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 

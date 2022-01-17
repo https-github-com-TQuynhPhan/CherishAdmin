@@ -5,6 +5,9 @@ const adminsController = require('./adminsController');
 
 router.get('/', adminsController.list);
 
+router.get('/adminsEdit/:Account',adminsController.edit);
+//router.post('/adminsEdit/',adminsController.saveEdit);
+
 router.get("/addAdmin", (req, res) => {
     res.render('admins/adminsAdd');
 });
@@ -12,10 +15,5 @@ router.get("/addAdmin", (req, res) => {
 router.post('/newAdmin',adminsController.add);
 
 router.get('/adminsDetail/:Account',adminsController.detail);
-
-router.get('/adminsProfile',adminsController.profile);
-
-router.get('/adminsEdit/:Account',adminsController.edit);
-router.post('/adminsEdit',adminsController.saveEdit);
 
 module.exports = router;

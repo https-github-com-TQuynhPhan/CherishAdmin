@@ -1,4 +1,4 @@
-const info=require('../../models/userinfos');
+const info = require('../../models/userinfos');
 const admin = require('../../models/adminaccounts');
 const saltRound = 10;
 const bcrypt = require("bcrypt");
@@ -26,7 +26,7 @@ exports.add =  async (req,res) => {
   }
   if(isExist) 
   {
-      return res.render('admins/adminsAdd',{message: 'Username already taken!'});
+      return res.render('admins/adminsAdd',{message: 'Account already taken!'});
   }
   else
   {
@@ -57,20 +57,3 @@ exports.add =  async (req,res) => {
 exports.detail =  (Account) => {
     return   info.find({ Account: Account }).limit(1);
    };
-
-
-exports.saveEdit = async (req,res) => {
-    let UserID=req.body.userid;
-    let Account=req.body.account;
-    let Name=req.body.name;
-    let Gender=req.body.gender;
-    let Phone=req.body.phone;
-    let Email=req.body.email;
-    let Address=req.body.address;
-    let Role=req.body.role;
-    const adm =await info.findOne({UserID});
-    adm.overwrite(
-    { UserID: UserID,Account: Account, Name: Name, Gender: Gender, Phone: Phone, Email: Email, Address: Address , Role:Role}
-    );
-    await adm.save();
-}

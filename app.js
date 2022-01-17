@@ -1,11 +1,43 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const multer = require('multer');
+const ejs = require('ejs');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 require('dotenv').config();
+
+const storage = multer.diskStorage({
+  destination: "./public/img/product",
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+let upload = multer({
+  storage: storage,
+  limits: { fileSize: 1000000 },
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+}).single("Image");
+
+function checkFileType(file, cb) {
+  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test(file.mimetype);
+
+  if (mimetype && extname) {
+    return cb(null, true);
+  } else {
+    cb("Error: Images Only!");
+  }
+}
 
 const session = require("express-session");
 
@@ -14,7 +46,7 @@ const passport = require('./auth/passport');
 const indexRouter = require('./routes/index');
 const analyticsRouter = require('./routes/analytics');
 const usersRouter = require('./components/auth/users');
-const productsRouter = require('./components/products/products');
+const productsRouter = require('./components/products/productsRouter');
 const customersRouter = require('./components/customers/customersRouter');
 const ordersRouter = require('./components/orders/ordersRouter');
 const adminsRouter = require('./components/admins/adminsRouter');
@@ -43,12 +75,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET, resave: true,
   saveUninitialized: true
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req,res,next) {
-  res.locals.currentAdmin = req.user;
+app.use( function(req,res,next){
+  res.locals.admin = req.admin;
   next();
 });
 
@@ -59,7 +90,6 @@ app.use('/customers', customersRouter);
 app.use('/orders', ordersRouter);
 app.use('/admins', adminsRouter);
 app.use('/analytics', analyticsRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.render('404', {layout: '404.hbs'});
@@ -76,4 +106,27 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post("/products/productAdd", (req, res) => {
+  upload(req, res, (err) => {
+    //err
+    if (err) {
+      res.render("error", {
+        error: err,
+      });
+      //if no err
+    } else {
+      if (req.file == undefined) {
+        res.render("error", {
+          error: "Error: No File Selected!",
+        });
+      } else {
+        console.log(req.body);
+        return true;
+      }
+    }
+  });
+});
+
+//app.upload = upload;
+module.exports.upload = upload;
 module.exports = app;
