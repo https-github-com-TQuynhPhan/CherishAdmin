@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -7,15 +8,15 @@ const passport = require('passport')
 
     async function (username, password, done) {
         try{
-            const user=await adminaccounts.findOne({ Account: username }).lean();
-            if (!user) {
+            const admin=await adminaccounts.findOne({ Account: username}).lean();
+            if (!admin) {
                 return done(null, false, { message: 'Incorrect username.' });
             }
-            const match=await validPassword(user,password);
+            const match=await validPassword(admin,password);
             if (!match) {
                 return done(null, false, { message: 'Incorrect password.' });
             }
-            return done(null, user);
+            return done(null, admin);
         }
         catch(err){
             return done(err);
@@ -24,7 +25,7 @@ const passport = require('passport')
 ));
 
 passport.serializeUser(function (admin, done) {
-    done(null, {account:admin.Account,password:admin.Password});
+    done(null, {username:admin.Account,password:admin.Password});
 });
 
 passport.deserializeUser(function (admin, done) {

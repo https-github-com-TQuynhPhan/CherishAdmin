@@ -39,7 +39,7 @@
                     <table>
                         <tr>
                             <th>ID</th>
-                            <th>Username</th>
+                            <th>Account</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
@@ -48,14 +48,14 @@
                         </tr>
                         {{#each admins}}
                         <tr>
-                            <td>{{ID}}</td>
+                            <td>{{UserID}}</td>
                             <td>{{Account}}</td>
                             <td>{{Name}}</td>
                             <td>{{Email}}</td>
                             <td>{{Phone}}</td>
                             <td>{{Role}}</td>
                             <td>
-                                <a href="/admins/adminsDetail">
+                                <a href="/admins/adminsDetail/{{Account}}">
                                 <button data-toggle="tooltip" title="Detail" class="pd-setting-ed"><i
                                         class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                 <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
@@ -66,11 +66,11 @@
                     </table>
                     <div class="custom-pagination">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="/admins?page=1">1</a></li>
+                            <li class="page-item"><a class="page-link" href="/admins?page=2">2</a></li>
+                            <li class="page-item"><a class="page-link" href="/admins?page=3">3</a></li>
+                            <li class="page-item"><a class="page-link" href="/admins?page=4">4</a></li>
+                            <li class="page-item"><a class="page-link" href="/admins?page=5">5</a></li>
                         </ul>
                     </div>
                 </div>

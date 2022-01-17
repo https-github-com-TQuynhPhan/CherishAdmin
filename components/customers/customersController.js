@@ -1,6 +1,11 @@
-exports.list = (req,res) => {
+customersService = require("./customersService")
 
-    res.render('customers/customersList');
+exports.list = async (req,res) => {
+    let itemPerPage = 5;
+    let page = req.query.page;
+    if (isNaN(page)) page = 1;
+    let customers = await customersService.list(page, itemPerPage)
+    res.render('customers/customersList',{customers});
 }
 
 exports.edit = (req,res) => {

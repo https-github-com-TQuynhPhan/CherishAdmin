@@ -1,7 +1,12 @@
 const adminsService = require('./adminsService');
 
 exports.list = async (req,res) => {
-    const admins = await adminsService.list();
+    let itemPerPage = 5;
+    let page = req.query.page;
+    if (isNaN(page)) page = 1;
+    //console.log("page= " + page);
+    let admins = await adminsService.list(page, itemPerPage)
+    //console.log("return data " + admins);
     res.render('admins/adminsList', {admins});
 }
 
@@ -12,10 +17,23 @@ exports.edit = (req,res) => {
 
 exports.add = (req,res) => {
 
-    res.render('admins/adminsAdd');
+    adminsService.add(req,res);
 }
 
-exports.detail = (req,res) => {
+exports.detail = async (req,res) => {
+    let Account = undefined;
+    try {
+        Account = req.params.Account;
+      } catch {}
+    let adminDetail= await adminsService.detail(Account)
+    res.render('admins/adminsDetail', {  adminDetail: adminDetail});
+}
 
-    res.render('admins/adminsDetail');
+exports.edit = async (req,res) => {
+    let Account = undefined;
+    try {
+        Account = req.params.Account;
+      } catch {}
+    let adminDetail= await adminsService.detail(Account)
+    res.render('admins/adminsEdit', {  adminDetail: adminDetail});
 }

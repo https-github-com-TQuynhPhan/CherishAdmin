@@ -42,67 +42,37 @@
                         <div id="myTabContent" class="tab-content custom-product-edit">
                             <div class="product-tab-list tab-pane fade active in" id="description">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div class="pro-edt-img">
-                                                <img src="#" alt="" />
-                                            </div>
-                                            <div class="text-center custom-pro-edt-ds">
-                                                <button type="button"
-                                                    class="btn btn-ctl-bt waves-effect waves-light">Upload</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="review-content-section">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <form action="/admins/newAdmin" method="POST" id="addForm">
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="ID">
+                                                <input type="text" class="form-control" placeholder="Account"
+                                                    name="Account">
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Username">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Name">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="D.O.B">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Email">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Phone Number">
-                                            </div>
-                                            <div class="input-group mg-b-pro-edt">
-                                                <span class="input-group-addon"></span>
-                                                <select name="select"
+                                                <input type="password" class="form-control" placeholder="Password"
+                                                    name="Password">
+                                            </div <div class="input-group mg-b-pro-edt">
+                                            <span class="input-group-addon"></span>
+                                            <select name="select"
                                                 class="form-control pro-edt-select form-control-primary">
                                                 <option value="opt1">Role -- Select One Value Only </option>
                                                 <option value="opt2">Admin</option>
                                                 <option value="opt3">Moderator</option>
                                                 <option value="opt4">Editor</option>
                                             </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="text-center custom-pro-edt-ds">
                                             <br>
-                                            <button type="button"
-                                                class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add New
-                                            </button>
-                                            <button type="button"
-                                                class="btn btn-ctl-bt waves-effect waves-light">Discard
-                                            </button>
-                                        </div>
+                                            {{#if message }}
+                                            <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                                            {{/if}}
+                                            <div class="text-center custom-pro-edt-ds">
+                                                <br>
+                                                <button type="submit"
+                                                    class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
+                                                <a href="/admins" class="btn btn-ctl-bt waves-effect waves-light">Discard</a>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -112,4 +82,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

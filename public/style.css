@@ -3501,9 +3501,6 @@ ul.mailbox-list li:hover a, ul.h-list li:hover a {
 .inline-checkbox-cs .checkbox-inline{
 	padding-left:0px;
 }
-.checkbox.login-checkbox label {
-    padding-left: 0px;
-}
 .btn-success.loginbtn {
     background-color: #e12503;
     border-color: #e12503;

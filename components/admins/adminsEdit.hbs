@@ -46,14 +46,19 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
+                                            {{#adminDetail}}
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="ID">
+                                                <input type="text" class="form-control" placeholder="ID" value="{{UserID}}">
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></i></span>
-                                                <input type="text" class="form-control" placeholder="Customer's Name">
+                                                <input type="text" class="form-control" placeholder="Account" value="{{Account}}">
                                             </div>
+                                            <div class="input-group mg-b-pro-edt">
+                                                <span class="input-group-addon"></i></span>
+                                                <input type="text" class="form-control" placeholder="Name" value="{{Name}}">
+                                            </div>                                            
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
                                                 <select name="select"
@@ -66,16 +71,17 @@
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Phone Number">
+                                                <input type="text" class="form-control" placeholder="Phone Number" value="{{Phone}} ">
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Email">
+                                                <input type="text" class="form-control" placeholder="Email" value="{{Email}}">
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" placeholder="Address">
+                                                <input type="text" class="form-control" placeholder="Address" value="{{Address}}">
                                             </div>
+                                            {{/adminDetail}}
                                         </div>
                                     </div>
                                 </div>
