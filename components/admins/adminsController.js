@@ -10,11 +10,6 @@ exports.list = async (req,res) => {
     res.render('admins/adminsList', {admins});
 }
 
-exports.edit = (req,res) => {
-
-    res.render('admins/adminsEdit');
-}
-
 exports.add = (req,res) => {
 
     adminsService.add(req,res);
@@ -37,3 +32,8 @@ exports.edit = async (req,res) => {
     let adminDetail= await adminsService.detail(Account)
     res.render('admins/adminsEdit', {  adminDetail: adminDetail});
 }
+
+exports.saveEdit = async (req, res) => {
+    await adminsService.saveEdit(req,res);
+    res.redirect("/admins/adminsDetail/"+req.body.account);
+ }

@@ -6,10 +6,11 @@ const UserInfoSchema = new Schema({
   Account: { type: String, unique: true},
   Name: {type: String, sparse:true },
   Gender: {type: String, sparse:true },
-  DOB: {type: String, sparse:true },
+  DOB: {type: Date, sparse:true },
   Address: {type: String, sparse:true },
   Email: {type: String, sparse:true},
   Phone: {type: String, sparse:true },
+  Avatar: {type: String, sparse:true },
   Role: String
 },
 {collection: "userinfos"}
