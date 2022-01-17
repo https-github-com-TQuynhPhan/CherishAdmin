@@ -43,11 +43,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET, resave: true,
   saveUninitialized: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use( function(req,res,next){
-  res.locals.admin = req.admin;
+app.use(function(req,res,next) {
+  res.locals.currentAdmin = req.user;
   next();
 });
 
@@ -58,6 +59,7 @@ app.use('/customers', customersRouter);
 app.use('/orders', ordersRouter);
 app.use('/admins', adminsRouter);
 app.use('/analytics', analyticsRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.render('404', {layout: '404.hbs'});

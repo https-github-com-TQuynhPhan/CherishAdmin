@@ -13,6 +13,8 @@ router.post('/newAdmin',adminsController.add);
 
 router.get('/adminsDetail/:Account',adminsController.detail);
 
+router.get('/adminsProfile',adminsController.profile);
+
 router.get('/adminsEdit/:Account',adminsController.edit);
 router.post('/adminsEdit',adminsController.saveEdit);
 

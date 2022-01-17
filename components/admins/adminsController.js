@@ -24,6 +24,15 @@ exports.detail = async (req,res) => {
     res.render('admins/adminsDetail', {  adminDetail: adminDetail});
 }
 
+exports.profile = async (req,res) => {
+    let Account = undefined;
+    try {
+        Account = req.user.account;
+      } catch {}
+    let adminDetail= await adminsService.detail(Account)
+    res.render('admins/adminsProfile', {  adminDetail: adminDetail});
+}
+
 exports.edit = async (req,res) => {
     let Account = undefined;
     try {
@@ -35,5 +44,5 @@ exports.edit = async (req,res) => {
 
 exports.saveEdit = async (req, res) => {
     await adminsService.saveEdit(req,res);
-    res.redirect("/admins/adminsDetail/"+req.body.account);
+    res.redirect("/admins/adminsProfile");
  }

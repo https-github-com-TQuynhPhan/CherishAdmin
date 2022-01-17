@@ -8,15 +8,15 @@ const passport = require('passport')
 
     async function (username, password, done) {
         try{
-            const admin=await adminaccounts.findOne({ Account: username}).lean();
-            if (!admin) {
+            const user=await adminaccounts.findOne({ Account: username}).lean();
+            if (!user) {
                 return done(null, false, { message: 'Incorrect username.' });
             }
-            const match=await validPassword(admin,password);
+            const match=await validPassword(user,password);
             if (!match) {
                 return done(null, false, { message: 'Incorrect password.' });
             }
-            return done(null, admin);
+            return done(null, user);
         }
         catch(err){
             return done(err);
@@ -24,16 +24,16 @@ const passport = require('passport')
     },
 ));
 
-passport.serializeUser(function (admin, done) {
-    done(null, {username:admin.Account,password:admin.Password});
+passport.serializeUser(function (user, done) {
+    done(null, {account:user.Account,password:user.Password});
 });
 
-passport.deserializeUser(function (admin, done) {
-    return done(null,admin);
+passport.deserializeUser(function (user, done) {
+    return done(null,user)
 });
 
-async function validPassword(admin,password){
-    return bcrypt.compare(password, admin.Password);
+async function validPassword(user,password){
+    return bcrypt.compare(password, user.Password);
 };
 
 module.exports=passport;

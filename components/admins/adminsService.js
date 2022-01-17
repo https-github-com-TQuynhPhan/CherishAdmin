@@ -26,7 +26,7 @@ exports.add =  async (req,res) => {
   }
   if(isExist) 
   {
-      return res.render('admins/adminsAdd',{message: 'Account already taken!'});
+      return res.render('admins/adminsAdd',{message: 'Username already taken!'});
   }
   else
   {
